@@ -48,7 +48,7 @@ fi
 # Run the bot
 if [ -f "bot.py" ]; then
     echo "Running trading bot..."
-    python3 bot.py --key $key_file --secret $secret_file --env $env
+    python3 main.py --key $key_file --secret $secret_file --env $env
 else
     echo "Error: bot.py not found!"
     deactivate
