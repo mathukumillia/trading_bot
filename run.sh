@@ -29,15 +29,12 @@ fi
 # Assign arguments to variables
 dir="$1"
 env="$2"
-url="https://paper-api.alpaca.markets/v2"
 
-# Validate the environment and use it to set the API url.
+# Validate the environment.
 if [ "$env" == "real" ]; then
   echo "Using real account"
-  url="https://api.alpaca.markets"
 elif [ "$env" == "paper" ]; then
   echo "Using paper account"
-  url="https://paper-api.alpaca.markets"
 else
   echo "Invalid second argument. It must be 'real' or 'paper'."
   exit 1
@@ -61,7 +58,7 @@ fi
 # Run the bot
 if [ -f "bot.py" ]; then
     echo "Running trading bot..."
-    python3 bot.py --key $key_file --secret $secret_file --api_url $url
+    python3 bot.py --key $key_file --secret $secret_file --env $env
 else
     echo "Error: bot.py not found!"
     deactivate
