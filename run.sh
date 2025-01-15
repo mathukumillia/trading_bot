@@ -30,16 +30,6 @@ fi
 dir="$1"
 env="$2"
 
-# Validate the environment.
-if [ "$env" == "real" ]; then
-  echo "Using real account"
-elif [ "$env" == "paper" ]; then
-  echo "Using paper account"
-else
-  echo "Invalid second argument. It must be 'real' or 'paper'."
-  exit 1
-fi
-
 # Define the paths to the key and secret files
 key_file="$dir/$env/key"
 secret_file="$dir/$env/secret"
